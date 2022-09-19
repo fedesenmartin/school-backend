@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "flight_records",
+  "info": {
+    "singularName": "flight-record",
+    "pluralName": "flight-records",
+    "displayName": "FlightRecord",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "plane": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::plane.plane",
+      "inversedBy": "flight_records"
+    },
+    "flight_school": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::flight-school.flight-school",
+      "inversedBy": "flight_records"
+    },
+    "arrival_time": {
+      "type": "time"
+    },
+    "departure_time": {
+      "type": "time"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "INSTRUCTION",
+        "PRIVATE",
+        "SECURITY",
+        "OTHER"
+      ]
+    },
+    "departure_airport": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::airport.airport"
+    },
+    "arrival_airport": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::airport.airport"
+    },
+    "hours": {
+      "type": "float"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "paid_iv": {
+      "type": "boolean"
+    },
+    "pilot": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pilot.pilot",
+      "inversedBy": "flight_records"
+    }
+  }
+}
