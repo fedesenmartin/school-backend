@@ -94,6 +94,7 @@ logs
 results
 node_modules
 .node_history
+data
 
 ############################
 # Tests
@@ -106,7 +107,6 @@ coverage
 # Strapi
 ############################
 
-.env
 license.txt
 exports
 *.cache
